@@ -1,0 +1,19 @@
+services:
+  fluentbit:
+    image: newrelic/newrelic-fluentbit-output:2.3.0
+    container_name: newrelic-fluentbit
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ./parsers.conf:/fluent-bit/etc/parsers.conf:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./fluent-bit-tail-db:/fluent-bit/tail-db:rw
+    networks:
+      - lognet
+
+networks:
+  lognet:
+    external: true
