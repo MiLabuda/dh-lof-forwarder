@@ -1,4 +1,4 @@
-FROM 533243300146.dkr.ecr.eu-west-1.amazonaws.com/newrelic/logging-firelens-fluentbit:latest
+FROM 354918401085.dkr.ecr.eu-west-1.amazonaws.com/base-images/newrelic-fluentbit:stable
 
 # Parsers & filters
 COPY ecs-metadata-filter.conf /etc/fluent-bit/ecs-metadata-parser.conf
