@@ -39,5 +39,5 @@ jobs:
           REPOSITORY: ${{ vars.AWS_ECR_REPOSITORY }}
           IMAGE_TAG: ${{ github.ref_name }}
         run: |
-          docker build --platform linux/amd64 -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
